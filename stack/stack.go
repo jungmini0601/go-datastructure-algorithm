@@ -38,5 +38,3 @@ func (s *Stack) Top() interface{} {
 	}
 	return s.list.Back().Value
 }
-
-// 스택 길이 반환
