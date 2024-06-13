@@ -45,6 +45,7 @@ func (h *HashMap) Insert(key string, value string) {
 		h.data[index] = &Node{key: key, value: value}
 	} else {
 		starting_node := h.data[index]
+		// 해시 충돌이 발생할 경우 쭉 이어준다. 이와 관련해서는 다른 내용도 있으므로 해시 충돌 알고리즘에 대해 살펴보는 것도 좋다.
 		for starting_node.next != nil {
 			// 이미 존재하는 키가 있다면 값을 바꿔준다.
 			if starting_node.key == key {
@@ -67,7 +68,6 @@ func (h *HashMap) Get(key string) (string, bool) {
 		if starting_node.key == key {
 			return starting_node.value, true
 		}
-
 		for starting_node.next != nil {
 			if starting_node.key == key {
 				return starting_node.value, true
